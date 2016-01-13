@@ -1,0 +1,32 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/* Author: Arief Grando
+ * Description: BPF Admin controller class
+ */
+class BPF_admin_menu extends MY_Controller{
+    
+    function __construct(){
+        parent::__construct();
+    }
+
+    public function index(){
+		if($this->session->userdata('admin')!="YES"){	
+			redirect('Error/validateAdmin');
+		}else{
+			
+		}
+    }
+
+	public function infoSubMenu(){
+		$this->index();
+		$this->template->load('master_aplikasi','BPF_core/formInfo');
+	}
+
+	public function showFormInfo(){
+		$this->index();
+		$this->template->load('master_aplikasi','BPF_core/formInfo');
+	}
+
+	
+
+}
+?>
